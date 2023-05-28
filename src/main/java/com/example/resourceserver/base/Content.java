@@ -32,7 +32,7 @@ public class Content {
     private boolean notDeleted;
 
     @ManyToOne
-    @JoinTable(name = "cloud.users",
+    @JoinTable(schema = "cloud", name = "users",
             joinColumns = {@JoinColumn(name = "id", referencedColumnName = "user_id")})
     private User owner;
 }

@@ -1,6 +1,7 @@
 package com.example.resourceserver.service;
 
 import com.example.resourceserver.base.Content;
+import com.example.resourceserver.base.ContentDTO;
 import com.example.resourceserver.base.ContentShell;
 import com.example.resourceserver.base.User;
 import com.example.resourceserver.exceptions.ContentNotFoundException;
@@ -27,14 +28,8 @@ public class CloudService {
         this.provider = provider;
     }
 
-    public void fileToServer(String token, String filename, File file) throws ContentNotFoundException{
+    public void fileToServer(String token, String filename, byte[] byteContent) throws ContentNotFoundException{
         User user = getUserByToken(token);
-        byte[] byteContent;
-        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))){
-            byteContent = bis.readAllBytes();
-        } catch (IOException ex){
-            throw new ContentNotFoundException();
-        }
         ContentShell content = new ContentShell(Content.builder()
                 .fileId(repository.getNextFileId())
                 .fileName(filename)
@@ -51,9 +46,9 @@ public class CloudService {
         ContentShell content = getContentShellByToken(token, filename);
         repository.deleteByFileId(content.getFileId());
     }
-    public File getFileFromServer (String token, String filename) throws ContentNotFoundException {
+    public ContentDTO getFileFromServer (String token, String filename) throws ContentNotFoundException {
         ContentShell contentShell = getContentShellByToken(token, filename);
-        return contentShell.getFileContent();
+        return new ContentDTO(contentShell.getFileName(), contentShell.getByteContent());
     }
 
     public User getUserByToken (String token){

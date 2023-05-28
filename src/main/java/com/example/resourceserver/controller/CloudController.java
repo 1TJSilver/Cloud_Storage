@@ -21,7 +21,7 @@ public class CloudController {
     @PostMapping("/file")
     public ResponseEntity fileOnServer(@RequestParam("auth-token") String token,
                                        @RequestParam("filename") String fileName,
-                                       @RequestParam("content") File content) throws ContentNotFoundException {
+                                       @RequestParam("content") byte[] content) throws ContentNotFoundException {
         service.fileToServer(token, fileName, content);
         return ResponseEntity.ok().build();
     }
@@ -34,9 +34,9 @@ public class CloudController {
     }
 
     @GetMapping("/file")
-    public File getFileFromServer(@RequestParam("auth-token") String token,
+    public byte[] getFileFromServer(@RequestParam("auth-token") String token,
                                   @RequestParam("filename") String fileName) throws ContentNotFoundException {
-        return service.getFileFromServer(token, fileName);
+        return service.getFileFromServer(token, fileName).getContent();
     }
 
     @PutMapping("/file")
