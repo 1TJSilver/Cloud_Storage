@@ -5,7 +5,6 @@ import com.example.resourceserver.service.CloudService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;
 import java.util.Map;
 
 @RestController
@@ -36,7 +35,7 @@ public class CloudController {
     @GetMapping("/file")
     public byte[] getFileFromServer(@RequestParam("auth-token") String token,
                                   @RequestParam("filename") String fileName) throws ContentNotFoundException {
-        return service.getFileFromServer(token, fileName).getContent();
+        return service.getFileFromServer(token, fileName).getContent().getContent();
     }
 
     @PutMapping("/file")

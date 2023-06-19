@@ -1,18 +1,13 @@
 package com.example.resourceserver.service;
 
-import com.example.resourceserver.base.Content;
-import com.example.resourceserver.base.ContentDTO;
-import com.example.resourceserver.base.ContentShell;
-import com.example.resourceserver.base.User;
+import com.example.resourceserver.base.domen.Content;
+import com.example.resourceserver.base.domen.ContentShell;
+import com.example.resourceserver.base.domen.User;
 import com.example.resourceserver.exceptions.ContentNotFoundException;
 import com.example.resourceserver.jwt.JWTTokenProvider;
 import com.example.resourceserver.repository.CloudRepository;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,9 +41,8 @@ public class CloudService {
         ContentShell content = getContentShellByToken(token, filename);
         repository.deleteByFileId(content.getFileId());
     }
-    public ContentDTO getFileFromServer (String token, String filename) throws ContentNotFoundException {
-        ContentShell contentShell = getContentShellByToken(token, filename);
-        return new ContentDTO(contentShell.getFileName(), contentShell.getByteContent());
+    public ContentShell getFileFromServer (String token, String filename) throws ContentNotFoundException {
+        return getContentShellByToken(token, filename);
     }
 
     public User getUserByToken (String token){

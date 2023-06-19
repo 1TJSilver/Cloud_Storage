@@ -1,6 +1,6 @@
 package com.example.resourceserver.repository;
 
-import com.example.resourceserver.base.Content;
+import com.example.resourceserver.base.domen.Content;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.query.Param;

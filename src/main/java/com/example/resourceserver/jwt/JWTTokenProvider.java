@@ -1,6 +1,6 @@
 package com.example.resourceserver.jwt;
 
-import com.example.resourceserver.base.ContentShell;
+import com.example.resourceserver.base.domen.ContentShell;
 import com.example.resourceserver.exceptions.JWTAuthenticationException;
 import com.example.resourceserver.service.AuthorizationService;
 import io.jsonwebtoken.*;

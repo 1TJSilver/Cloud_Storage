@@ -1,8 +1,11 @@
-package com.example.resourceserver.base;
+package com.example.resourceserver.base.domen;
 
 
+import com.example.resourceserver.base.domen.Content;
+import com.example.resourceserver.base.domen.ContentShell;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "cloud", name = "users")
+@Builder
 public class User {
     @Id
     @GeneratedValue
@@ -24,9 +28,11 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany
-    @JoinTable(name = "cloud.files",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
+    @JoinColumn(table = "cloud.files", name = "user_id", referencedColumnName = "user_id")
+    /*@JoinTable(name = "cloud.files",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "")})*/
     private List<Content> files;
 
     public List<ContentShell> getShellFiles() {

@@ -1,6 +1,6 @@
 package com.example.resourceserver.jwt;
 
-import com.example.resourceserver.base.User;
+import com.example.resourceserver.base.domen.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

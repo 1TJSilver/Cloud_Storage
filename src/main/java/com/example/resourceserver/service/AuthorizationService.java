@@ -1,6 +1,6 @@
 package com.example.resourceserver.service;
 
-import com.example.resourceserver.base.User;
+import com.example.resourceserver.base.domen.User;
 import com.example.resourceserver.jwt.JWTTokenProvider;
 import com.example.resourceserver.repository.CloudRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.example.resourceserver.base;
+package com.example.resourceserver.base.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

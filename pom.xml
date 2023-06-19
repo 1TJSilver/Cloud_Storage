@@ -15,7 +15,9 @@
 	<description>HW_9_0_0_1_Cloud_Storage</description>
 	<properties>
 		<java.version>17</java.version>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 	</properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

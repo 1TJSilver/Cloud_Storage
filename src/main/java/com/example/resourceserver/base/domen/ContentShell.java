@@ -1,5 +1,6 @@
-package com.example.resourceserver.base;
+package com.example.resourceserver.base.domen;
 
+import com.example.resourceserver.base.domen.Content;
 import com.example.resourceserver.exceptions.InternalServerException;
 import lombok.Data;
 

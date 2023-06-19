@@ -1,4 +1,4 @@
-package com.example.resourceserver.base;
+package com.example.resourceserver.base.domen;
 
 
 import jakarta.persistence.*;
@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Table(schema = "cloud", name = "files")
+@SecondaryTable(name = "cloud_users",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "user_id"))
 public class Content {
     @Id
     @GeneratedValue
@@ -31,7 +33,8 @@ public class Content {
     @Column(name = "not_deleted")
     private boolean notDeleted;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(table = "cloud.files", name = "user_id", referencedColumnName = "user_id")
     @JoinTable(schema = "cloud", name = "users",
             joinColumns = {@JoinColumn(name = "id", referencedColumnName = "user_id")})
     private User owner;
