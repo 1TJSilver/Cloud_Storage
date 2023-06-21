@@ -28,7 +28,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(table = "cloud.files", name = "user_id", referencedColumnName = "user_id")
     /*@JoinTable(name = "cloud.files",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
