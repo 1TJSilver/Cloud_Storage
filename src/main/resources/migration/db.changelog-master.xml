@@ -4,7 +4,8 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
-    <include file="tables/001_file.sql" relativeToChangelogFile="true"/>
+    <include file="tables/001_schema.sql" relativeToChangelogFile="true"/>
+    <include file="tables/003_users.sql" relativeToChangelogFile="true"/>
+    <include file="tables/002_file.sql" relativeToChangelogFile="true"/>
     <include file="tables/001_revokeTokens.sql" relativeToChangelogFile="true"/>
-    <include file="tables/001_users.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>
