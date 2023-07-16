@@ -13,8 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Table(schema = "cloud", name = "files")
-@SecondaryTable(name = "cloud_users",
-        pkJoinColumns = @PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "user_id"))
+
 public class Content {
     @Id
     @GeneratedValue
