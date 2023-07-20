@@ -1,6 +1,7 @@
 package com.example.resourceserver.base.domen;
 
 import com.example.resourceserver.base.domen.Content;
+import com.example.resourceserver.base.dto.ContentDTO;
 import com.example.resourceserver.exceptions.InternalServerException;
 import lombok.Data;
 
@@ -37,5 +38,12 @@ public class ContentShell {
 
     public Content getContent() {
         return content;
+    }
+
+    public ContentDTO getDTO(){
+        return ContentDTO.builder()
+                .filename(fileName)
+                .content(byteContent)
+                .build();
     }
 }

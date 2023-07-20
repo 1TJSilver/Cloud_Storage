@@ -18,8 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(schema = "cloud", name = "users")
 @Builder
-@SecondaryTable(schema = "cloud", name = "files",
-        pkJoinColumns = @PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "user_id"))
+
 public class User {
     @Id
     @GeneratedValue
@@ -30,9 +29,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(table = "cloud.files", name = "user_id", referencedColumnName = "user_id")
-
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY, mappedBy = "fileId")
+    /*@JoinColumn(table = "cloud.files", name = "user_id", referencedColumnName = "user_id")*/
     private List<Content> files;
 
     public List<ContentShell> getShellFiles() {

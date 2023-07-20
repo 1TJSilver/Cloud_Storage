@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Table(schema = "cloud", name = "files")
+@SecondaryTable(schema = "cloud", name = "users",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "userId", referencedColumnName = "user_id"))
 
 public class Content {
     @Id
@@ -33,8 +35,8 @@ public class Content {
     private boolean notDeleted;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(table = "cloud.files", name = "user_id", referencedColumnName = "user_id")
-    @JoinTable(schema = "cloud", name = "users",
-            joinColumns = {@JoinColumn(name = "id", referencedColumnName = "user_id")})
+    @JoinColumn(table = "users", name = "user_id", referencedColumnName = "user_id")
+    /*@JoinTable(schema = "cloud", name = "users",
+            joinColumns = {@JoinColumn(name = "id", referencedColumnName = "user_id")})*/
     private User owner;
 }

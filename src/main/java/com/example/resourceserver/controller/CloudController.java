@@ -1,5 +1,6 @@
 package com.example.resourceserver.controller;
 
+import com.example.resourceserver.base.dto.ContentDTO;
 import com.example.resourceserver.exceptions.ContentNotFoundException;
 import com.example.resourceserver.service.CloudService;
 import org.springframework.http.ResponseEntity;
@@ -33,9 +34,9 @@ public class CloudController {
     }
 
     @GetMapping("/file")
-    public byte[] getFileFromServer(@RequestParam("auth-token") String token,
-                                  @RequestParam("filename") String fileName) throws ContentNotFoundException {
-        return service.getFileFromServer(token, fileName).getContent().getContent();
+    public ContentDTO getFileFromServer(@RequestParam("auth-token") String token,
+                                        @RequestParam("filename") String fileName) throws ContentNotFoundException {
+        return service.getFileFromServer(token, fileName).getDTO(); 
     }
 
     @PutMapping("/file")
