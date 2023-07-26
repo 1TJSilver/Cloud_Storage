@@ -1,6 +1,6 @@
 package com.example.resourceserver.jwt;
 
-import com.example.resourceserver.base.domen.User;
+import com.example.resourceserver.base.domain.User;
 import com.example.resourceserver.service.AuthorizationService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,6 @@
 package com.example.resourceserver.repository;
 
-import com.example.resourceserver.base.domen.User;
+import com.example.resourceserver.base.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserJDBSRep extends JpaRepository<User, Long> {

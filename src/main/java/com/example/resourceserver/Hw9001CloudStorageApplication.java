@@ -1,6 +1,6 @@
 package com.example.resourceserver;
 
-import com.example.resourceserver.base.domen.User;
+import com.example.resourceserver.base.domain.User;
 import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

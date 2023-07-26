@@ -1,6 +1,6 @@
 package com.example.resourceserver.service;
 
-import com.example.resourceserver.base.domen.User;
+import com.example.resourceserver.base.domain.User;
 import com.example.resourceserver.jwt.JWTTokenProvider;
 import com.example.resourceserver.repository.CloudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,26 +11,13 @@ import org.springframework.stereotype.Service;
 public class AuthorizationService {
     CloudRepository repository;
 
-    private final AuthenticationManager manager;
+    private AuthenticationManager manager;
 
-    private final JWTTokenProvider provider;
+    private JWTTokenProvider provider;
 
-    private final AuthorizationService service;
+    //private final AuthorizationService service;
 
-    @Autowired
-    public AuthorizationService (AuthenticationManager manager,
-                                 JWTTokenProvider provider,
-                                 AuthorizationService service,
-                                 CloudRepository repository){
-        this.manager = manager;
-        this.provider = provider;
-        this.service = service;
-        this.repository = repository;
-    }
-    public String login(String login, String password){
-        User user = getUser(login, password);
-
-        return null;
+    public AuthorizationService (){;
     }
 
     public void logout(String token){
@@ -47,5 +34,17 @@ public class AuthorizationService {
 
     public User findUser(String username){
         return repository.findUser(username);
+    }
+
+    public void setManager(AuthenticationManager manager) {
+        this.manager = manager;
+    }
+
+    public void setProvider(JWTTokenProvider provider) {
+        this.provider = provider;
+    }
+
+    public void setRepository(CloudRepository repository) {
+        this.repository = repository;
     }
 }

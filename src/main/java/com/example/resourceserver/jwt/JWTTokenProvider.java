@@ -1,6 +1,6 @@
 package com.example.resourceserver.jwt;
 
-import com.example.resourceserver.base.domen.ContentShell;
+import com.example.resourceserver.base.domain.ContentShell;
 import com.example.resourceserver.exceptions.JWTAuthenticationException;
 import com.example.resourceserver.service.AuthorizationService;
 import io.jsonwebtoken.*;
@@ -27,7 +27,7 @@ public class JWTTokenProvider {
     @Value("${jwt.token.secret}")
     private String secret;
 
-    @Value("@{jwt.token.expired}")
+    @Value("${jwt.token.expired}")
     private long validityTime;
 
     private UserDetailsService detailsService;

@@ -3,6 +3,7 @@ package com.example.resourceserver.config;
 import com.example.resourceserver.jwt.JWTConfiguration;
 import com.example.resourceserver.jwt.JWTTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,9 +11,11 @@ import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EntityScan("com.example.resourceserver.base.domain")
 public class CloudConfiguration {
 
     private static final String LOGIN_END = "/cloud/login";
@@ -29,7 +32,7 @@ public class CloudConfiguration {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         var providerManager = new DaoAuthenticationProvider();
         providerManager.setUserDetailsService(null);
-        providerManager.setPasswordEncoder(null);
+        providerManager.setPasswordEncoder(new BCryptPasswordEncoder());
         return new ProviderManager(providerManager);
     }
 

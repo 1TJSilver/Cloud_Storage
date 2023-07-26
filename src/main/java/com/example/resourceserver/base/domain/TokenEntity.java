@@ -1,11 +1,11 @@
-package com.example.resourceserver.base.dto;
+package com.example.resourceserver.base.domain;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Data

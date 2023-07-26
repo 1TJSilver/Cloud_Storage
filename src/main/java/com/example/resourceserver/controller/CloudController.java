@@ -36,7 +36,7 @@ public class CloudController {
     @GetMapping("/file")
     public ContentDTO getFileFromServer(@RequestParam("auth-token") String token,
                                         @RequestParam("filename") String fileName) throws ContentNotFoundException {
-        return service.getFileFromServer(token, fileName).getDTO(); 
+        return service.getFileFromServer(token, fileName).getDTO();
     }
 
     @PutMapping("/file")

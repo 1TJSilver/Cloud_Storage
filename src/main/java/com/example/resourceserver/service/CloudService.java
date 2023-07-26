@@ -1,8 +1,8 @@
 package com.example.resourceserver.service;
 
-import com.example.resourceserver.base.domen.Content;
-import com.example.resourceserver.base.domen.ContentShell;
-import com.example.resourceserver.base.domen.User;
+import com.example.resourceserver.base.domain.Content;
+import com.example.resourceserver.base.domain.ContentShell;
+import com.example.resourceserver.base.domain.User;
 import com.example.resourceserver.exceptions.ContentNotFoundException;
 import com.example.resourceserver.jwt.JWTTokenProvider;
 import com.example.resourceserver.repository.CloudRepository;

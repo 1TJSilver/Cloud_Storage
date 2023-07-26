@@ -1,7 +1,7 @@
 package com.example.resourceserver.controller;
 
 import com.example.resourceserver.base.dto.AuthenticationDTO;
-import com.example.resourceserver.base.domen.User;
+import com.example.resourceserver.base.domain.User;
 import com.example.resourceserver.exceptions.JWTAuthenticationException;
 import com.example.resourceserver.jwt.JWTTokenProvider;
 import com.example.resourceserver.service.AuthorizationService;

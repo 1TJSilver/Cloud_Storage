@@ -1,8 +1,8 @@
 package com.example.resourceserver.repository;
 
-import com.example.resourceserver.base.domen.Content;
-import com.example.resourceserver.base.domen.ContentShell;
-import com.example.resourceserver.base.domen.User;
+import com.example.resourceserver.base.domain.Content;
+import com.example.resourceserver.base.domain.ContentShell;
+import com.example.resourceserver.base.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

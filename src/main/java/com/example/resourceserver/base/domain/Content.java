@@ -1,7 +1,7 @@
-package com.example.resourceserver.base.domen;
+package com.example.resourceserver.base.domain;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

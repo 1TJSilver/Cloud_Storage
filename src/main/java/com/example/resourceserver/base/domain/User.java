@@ -1,9 +1,7 @@
-package com.example.resourceserver.base.domen;
+package com.example.resourceserver.base.domain;
 
 
-import com.example.resourceserver.base.domen.Content;
-import com.example.resourceserver.base.domen.ContentShell;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,7 +27,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY, mappedBy = "fileId")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY/*, mappedBy = "fileId"*/)
     /*@JoinColumn(table = "cloud.files", name = "user_id", referencedColumnName = "user_id")*/
     private List<Content> files;
 
