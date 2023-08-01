@@ -1,6 +1,7 @@
 package com.example.resourceserver.base.domain;
 
 import com.example.resourceserver.base.dto.ContentDTO;
+import com.example.resourceserver.base.dto.ContentDTOBuilder;
 import com.example.resourceserver.exceptions.InternalServerException;
 import lombok.Data;
 
@@ -39,10 +40,15 @@ public class ContentShell {
         return content;
     }
 
-    public ContentDTO getDTO(){
-        return ContentDTO.builder()
-                .filename(fileName)
-                .content(byteContent)
-                .build();
+    public ContentDTO createDTO(){
+        return ContentDTOBuilder.create(this);
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public byte[] getByteContent() {
+        return byteContent;
     }
 }

@@ -11,4 +11,9 @@ import lombok.NoArgsConstructor;
 public class ContentDTO {
     private String filename;
     private byte[] content;
+
+    public ContentDTO(String filename, byte[] content){
+        this.filename = filename;
+        this.content = content;
+    }
 }
