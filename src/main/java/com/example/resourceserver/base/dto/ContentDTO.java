@@ -7,13 +7,14 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 public class ContentDTO {
     private String filename;
     private byte[] content;
 
     public ContentDTO(String filename, byte[] content){
-        this.filename = filename;
         this.content = content;
+        this.filename = filename;
     }
+
+    public ContentDTO(){}
 }

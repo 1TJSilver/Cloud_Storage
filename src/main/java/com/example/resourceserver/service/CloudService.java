@@ -26,12 +26,12 @@ public class CloudService {
     public void fileToServer(String token, String filename, byte[] byteContent) throws ContentNotFoundException{
         User user = getUserByToken(token);
         ContentShell content = new ContentShell(Content.builder()
-                .fileId(repository.getNextFileId())
-                .fileName(filename)
-                .userId(user.getUserId())
-                .content(byteContent)
-                .owner(user)
-                .notDeleted(true)
+                .setFileId(repository.getNextFileId())
+                .setFileName(filename)
+                .setUserId(user.getUserId())
+                .setContent(byteContent)
+                .setOwner(user)
+                .setNotDeleted(true)
                 .build());
         user.getFiles().add(content.getContent());
         repository.addFileToServer(content);
@@ -73,7 +73,7 @@ public class CloudService {
             ContentShell x = files.get(i);
             if (x.isNotDeleted()){
                 result.put(x.getFileName(), x.getFileContent().length());
-            }
+                 }
         }
         return result;
     }

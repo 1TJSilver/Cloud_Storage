@@ -19,17 +19,17 @@ import java.util.Map;
 @RestController
 @RequestMapping("/cloud")
 public class AuthorizationController {
-    private final AuthenticationManager manager;
+    private AuthenticationManager manager;
 
-    private final JWTTokenProvider provider;
+    private JWTTokenProvider provider;
 
-    private final AuthorizationService service;
+    private AuthorizationService service;
 
     @Autowired
-    public AuthorizationController (AuthenticationManager manager,
+    public AuthorizationController (//AuthenticationManager manager,
                                     JWTTokenProvider provider,
                                     AuthorizationService service){
-        this.manager = manager;
+        //this.manager = manager;
         this.provider = provider;
         this.service = service;
     }
@@ -61,5 +61,16 @@ public class AuthorizationController {
     public void logout (String token){
         service.logout(token);
     }
+
+    @Autowired
+    public void setManager (AuthenticationManager manager){
+        this.manager = manager;
+    }
+
+    @Autowired
+    public void setProvider(JWTTokenProvider provider) {
+        this.provider = provider;
+    }
+
 
 }

@@ -15,4 +15,8 @@ import javax.persistence.*;
 public class TokenEntity {
     @Id
     private String token;
+
+    public String getToken() {
+        return token;
+    }
 }

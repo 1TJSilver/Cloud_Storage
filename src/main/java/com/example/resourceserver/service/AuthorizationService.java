@@ -3,7 +3,6 @@ package com.example.resourceserver.service;
 import com.example.resourceserver.base.domain.User;
 import com.example.resourceserver.jwt.JWTTokenProvider;
 import com.example.resourceserver.repository.CloudRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Service;
 

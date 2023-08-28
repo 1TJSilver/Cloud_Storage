@@ -51,4 +51,48 @@ public class ContentShell {
     public byte[] getByteContent() {
         return byteContent;
     }
+
+    public File getFileContent() {
+        return fileContent;
+    }
+
+    public Long getFileId() {
+        return fileId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public void setContent(Content content) {
+        this.content = content;
+    }
+
+    public void setFileId(Long fileId) {
+        this.fileId = fileId;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public void setByteContent(byte[] byteContent) {
+        this.byteContent = byteContent;
+    }
+
+    public void setFileContent(File fileContent) {
+        this.fileContent = fileContent;
+    }
+
+    public void setNotDeleted(boolean notDeleted) {
+        this.notDeleted = notDeleted;
+    }
+
+    public boolean isNotDeleted() {
+        return notDeleted;
+    }
 }

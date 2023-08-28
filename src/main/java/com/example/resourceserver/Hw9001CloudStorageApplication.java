@@ -5,12 +5,19 @@ import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @SpringBootApplication
+@EntityScan({"com.example.resourceserver.base.domain", "com.example.resourceserver.entity"})
+@EnableJpaRepositories("com.example.resourceserver.repository")
+@ComponentScan({"com.example.resourceserver.controller", "com.example.resourceserver.service",
+        "com.example.resourceserver.jwt", "com.example.resourceserver.config", "com.example.resourceserver.repository"})
 public class Hw9001CloudStorageApplication implements CommandLineRunner {
 
     @PersistenceContext
@@ -26,11 +33,10 @@ public class Hw9001CloudStorageApplication implements CommandLineRunner {
     @Transactional
     public void run(String... args) throws Exception {
         User user = User.builder()
-                .userId(1L)
-                .login("login")
-                .password("password")
+                .setUserId(1L)
+                .setLogin("login")
+                .setPassword("password")
                 .build();
-
         entityManager.persist(user);
     }
 }

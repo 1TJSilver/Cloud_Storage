@@ -2,21 +2,11 @@ package com.example.resourceserver.base.domain;
 
 
 import javax.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(schema = "cloud", name = "users")
-@Builder
-
 public class User {
     @Id
     @GeneratedValue
@@ -37,6 +27,53 @@ public class User {
             result.add(new ContentShell(x));
         });
         return result;
+    }
+
+    public User() {
+
+    }
+
+    public User(Long userId, String login, String password, List<Content> files) {
+        this.userId = userId;
+        this.login = login;
+        this.password = password;
+        this.files = files;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public List<Content> getFiles() {
+        return files;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setFiles(List<Content> files) {
+        this.files = files;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public static UserBuilder builder() {
+        return new UserBuilder();
     }
 }
 /*@JoinTable(name = "cloud.files",
